@@ -13,6 +13,6 @@ Versión con funcionalidad extra.
 Manejo de usuarios:
 
 
-1. Cliente - puede comprar entradas.
-2. Boletero - puede vender entradas.
+1. Usuario - Generico con informacion de usuario
+2. Boletero - usuario que puede vender entradas.
 
