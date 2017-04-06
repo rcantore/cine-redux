@@ -22,17 +22,13 @@ public class Pelicula {
     private Date fechaIngreso;
     private String nombre;
     private String tituloOriginal;
-    private PaisDeOrigen paisDeOrigen;
-    private List<Personaje> personajes;
     private List<Funcion> funciones;
     private Genero genero;
-    private Calificacion calificacion;
 
     /**
      * Constructor por Defecto
      */
     public Pelicula() {
-        personajes = new ArrayList<>();
         funciones = new ArrayList<>();
     }
         
@@ -40,19 +36,17 @@ public class Pelicula {
      * Este constructor no incluye los atributos referenciales de la clase Pelicula
      * 
      * @param anioEstreno
-     * @param disponible
      * @param duracion
      * @param nombre
      * @param tituloOriginal 
      */
-    public Pelicula(int anioEstreno, boolean disponible, int duracion, String nombre, String tituloOriginal) {
+    public Pelicula(int anioEstreno, int duracion, String nombre, String tituloOriginal) {
         this.anioEstreno = anioEstreno;
-        this.disponible = disponible;
+        this.disponible = true;
         this.duracion = duracion;
         this.nombre = nombre;
         this.tituloOriginal = tituloOriginal;        
         this.fechaIngreso = java.sql.Timestamp.valueOf(LocalDateTime.now());
-        this.personajes = new ArrayList<>();
         this.funciones = new ArrayList<>();
         
     }
@@ -65,23 +59,17 @@ public class Pelicula {
      * @param duracion
      * @param nombre
      * @param tituloOriginal
-     * @param paisDeOrigen
-     * @param personajes
      * @param funciones
      * @param genero
-     * @param calificacion 
      */
-    public Pelicula(int anioEstreno, boolean disponible, int duracion, String nombre, String tituloOriginal, PaisDeOrigen paisDeOrigen, List<Personaje> personajes, List<Funcion> funciones, Genero genero, Calificacion calificacion) {
+    public Pelicula(int anioEstreno, boolean disponible, int duracion, String nombre, String tituloOriginal, List<Funcion> funciones, Genero genero) {
         this.anioEstreno = anioEstreno;
         this.disponible = disponible;
         this.duracion = duracion;
         this.nombre = nombre;
         this.tituloOriginal = tituloOriginal;
-        this.paisDeOrigen = paisDeOrigen;
-        this.personajes = personajes;
         this.funciones = funciones;
         this.genero = genero;
-        this.calificacion = calificacion;
         this.fechaIngreso = java.sql.Timestamp.valueOf(LocalDateTime.now()); 
     }
     
@@ -174,22 +162,6 @@ public class Pelicula {
         this.tituloOriginal = tituloOriginal;
     }
 
-    public PaisDeOrigen getPaisDeOrigen() {
-        return paisDeOrigen;
-    }
-
-    public void setPaisDeOrigen(PaisDeOrigen paisDeOrigen) {
-        this.paisDeOrigen = paisDeOrigen;
-    }
-
-    public List<Personaje> getPersonajes() {
-        return personajes;
-    }
-
-    public void setPersonajes(List<Personaje> personajes) {
-        this.personajes = personajes;
-    }
-
     public List<Funcion> getFunciones() {
         return funciones;
     }
@@ -204,14 +176,6 @@ public class Pelicula {
 
     public void setGenero(Genero genero) {
         this.genero = genero;
-    }
-
-    public Calificacion getCalificacion() {
-        return calificacion;
-    }
-
-    public void setCalificacion(Calificacion calificacion) {
-        this.calificacion = calificacion;
     }
 
     @Override

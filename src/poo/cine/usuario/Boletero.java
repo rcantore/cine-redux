@@ -5,22 +5,21 @@
  */
 package poo.cine.usuario;
 
-import poo.cine.Pelicula;
-import poo.cine.Programacion;
-import poo.cine.Ticket;
-import poo.cine.controller.GestorTickets;
+import poo.cine.Entrada;
+import poo.cine.Funcion;
+import poo.cine.controller.GestorEntradas;
 /**
  *
  * @author roberto
  */
 public class Boletero extends Usuario {
     
-    public void venderTicket(Pelicula pelicula, Programacion programacion) {
-        Ticket ticket = new Ticket();
-        ticket.setPelicula(pelicula);
-        ticket.setProgramacion(programacion);
+    public void venderEntrada(Funcion funcion) {
+
+        Entrada entrada = new Entrada();
+        entrada.setFuncion(funcion);
         
-        GestorTickets.guardarTicket(ticket);
+        GestorEntradas.guardarEntrada(entrada);
     }
     
 }

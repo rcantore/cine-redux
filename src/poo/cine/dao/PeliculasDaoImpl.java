@@ -20,9 +20,9 @@ public class PeliculasDaoImpl implements PeliculasDao {
 
     public PeliculasDaoImpl() {
         this.peliculas = new ArrayList<>();
-        this.peliculas.add(new Pelicula(2001, true, 0, "El hijo de la novia", "El hijo de la novia"));
-        this.peliculas.add(new Pelicula(1999, true, 0, "Matrix", "Matrix"));
-        this.peliculas.add(new Pelicula(1985, true, 0, "Volver al futuro", "Back to the future"));
+        this.peliculas.add(new Pelicula(2001, 0, "El hijo de la novia", "El hijo de la novia"));
+        this.peliculas.add(new Pelicula(1999, 0, "Matrix", "Matrix"));
+        this.peliculas.add(new Pelicula(1985, 0, "Volver al futuro", "Back to the future"));
     }
 
     @Override
@@ -49,6 +49,11 @@ public class PeliculasDaoImpl implements PeliculasDao {
         this.peliculas.add(pelicula);
         
         System.out.println("Película agregada: " + pelicula);
+    }
+    
+    @Override
+    public List<Pelicula> obtenerTodos() {
+        return peliculas;
     }
     
 }

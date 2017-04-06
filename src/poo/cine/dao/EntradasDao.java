@@ -6,15 +6,15 @@
 package poo.cine.dao;
 
 import java.util.List;
-import poo.cine.Ticket;
+import poo.cine.Entrada;
 
 /**
  *
  * @author roberto
  */
-public interface TicketsDao {
+public interface EntradasDao {
     
-    public List<Ticket> obtenerTodos();
+    public List<Entrada> obtenerTodos();
     
-    public void guardar (Ticket ticket);
+    public void guardar (Entrada entrada);
 }

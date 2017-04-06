@@ -10,7 +10,16 @@ package poo.cine.usuario;
  * @author Roberto Cantore
  */
 public class Usuario {
-    private String nombre;
+    protected String id;
+    protected String nombre;
+    
+    public String getId() {
+        return id;
+    }
+    
+    public void setId(String id) {
+        this.id = id;
+    }
     
     public String getNombre() {
         return nombre;

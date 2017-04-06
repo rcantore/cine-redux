@@ -5,6 +5,7 @@
  */
 package poo.cine.dao;
 
+import java.util.List;
 import poo.cine.Pelicula;
 
 /**
@@ -16,5 +17,7 @@ public interface PeliculasDao {
     public Pelicula buscarPorNombre (String nombre);
     
     public void guardar (Pelicula pelicula);
+    
+    public List<Pelicula> obtenerTodos();
     
 }

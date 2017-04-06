@@ -9,11 +9,8 @@ import poo.cine.controller.GestorPelicula;
 import java.awt.event.WindowEvent;
 import java.util.List;
 import javax.swing.JOptionPane;
-import poo.cine.Calificacion;
 import poo.cine.Genero;
-import poo.cine.PaisDeOrigen;
 import poo.cine.Pelicula;
-import poo.cine.Personaje;
 
 /**
  *
@@ -22,16 +19,11 @@ import poo.cine.Personaje;
 public class PantallaAdministracionPelicula extends javax.swing.JFrame {
     
     private List<Genero> generos;
-    private List<Calificacion> calificaciones;
-    private List<PaisDeOrigen> paises;
-    private List<Personaje> personajes;
     
     private final GestorPelicula gestor;
 
-    public PantallaAdministracionPelicula(List<Genero> generos, List<Calificacion> calificaciones, List<PaisDeOrigen> paises, GestorPelicula gestor) {
+    public PantallaAdministracionPelicula(List<Genero> generos, GestorPelicula gestor) {
         this.generos = generos;
-        this.calificaciones = calificaciones;
-        this.paises = paises;
         this.gestor = gestor;
         
         initComponents();
@@ -52,10 +44,6 @@ public class PantallaAdministracionPelicula extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         selGenero = new javax.swing.JComboBox<>();
-        jLabel3 = new javax.swing.JLabel();
-        selCalificacion = new javax.swing.JComboBox<>();
-        jLabel4 = new javax.swing.JLabel();
-        selPais = new javax.swing.JComboBox<>();
         jPanel2 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         txtDuracion = new javax.swing.JTextField();
@@ -63,11 +51,6 @@ public class PantallaAdministracionPelicula extends javax.swing.JFrame {
         txtTituloOriginal = new javax.swing.JTextField();
         txtAnioEstreno = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jLabel9 = new javax.swing.JLabel();
-        radioSiDisponible = new javax.swing.JRadioButton();
-        radioNoDisponible = new javax.swing.JRadioButton();
         jPanel3 = new javax.swing.JPanel();
         btnCancelar = new javax.swing.JButton();
         btnConfirmar = new javax.swing.JButton();
@@ -106,19 +89,6 @@ public class PantallaAdministracionPelicula extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setText("Calificación:");
-
-        selCalificacion.setModel(new javax.swing.DefaultComboBoxModel(calificaciones.toArray()));
-
-        jLabel4.setText("País de origen:");
-
-        selPais.setModel(new javax.swing.DefaultComboBoxModel(paises.toArray()));
-        selPais.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                selPaisActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -128,14 +98,6 @@ public class PantallaAdministracionPelicula extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(selGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(selCalificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(selPais, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -144,11 +106,7 @@ public class PantallaAdministracionPelicula extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(selGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(selCalificacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4)
-                    .addComponent(selPais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel2))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -195,24 +153,6 @@ public class PantallaAdministracionPelicula extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jLabel8.setText("Registrar Elenco:");
-
-        jButton1.setText("Registrar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        jLabel9.setText("Disponible:");
-
-        buttonGroup5.add(radioSiDisponible);
-        radioSiDisponible.setText("Sí");
-
-        buttonGroup5.add(radioNoDisponible);
-        radioNoDisponible.setSelected(true);
-        radioNoDisponible.setText("No");
-
         jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         btnCancelar.setText("Cancelar");
@@ -234,7 +174,7 @@ public class PantallaAdministracionPelicula extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(429, Short.MAX_VALUE)
                 .addComponent(btnConfirmar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnCancelar)
@@ -263,17 +203,6 @@ public class PantallaAdministracionPelicula extends javax.swing.JFrame {
                         .addComponent(txtNombre))
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton1)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(radioSiDisponible)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(radioNoDisponible)
-                        .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -288,18 +217,9 @@ public class PantallaAdministracionPelicula extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel9)
-                        .addComponent(radioSiDisponible)
-                        .addComponent(radioNoDisponible))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel8)
-                        .addComponent(jButton1)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(53, 53, 53)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         pack();
@@ -312,10 +232,6 @@ public class PantallaAdministracionPelicula extends javax.swing.JFrame {
     private void selGeneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selGeneroActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_selGeneroActionPerformed
-
-    private void selPaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selPaisActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_selPaisActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
@@ -347,17 +263,13 @@ public class PantallaAdministracionPelicula extends javax.swing.JFrame {
         else {
             // obtenemos los datos ingresados por el usuario
             int anioEstreno = Integer.parseInt(txtAnioEstreno.getText());
-            boolean disponible = radioSiDisponible.isSelected();
             int duracion = Integer.parseInt(txtDuracion.getText());
             String nombre = txtNombre.getText();
             String tituloOriginal = txtTituloOriginal.getText();
         
             // creamos la instancia de una nueva pelicula
-            Pelicula nueva = new Pelicula(anioEstreno, disponible, duracion, nombre, tituloOriginal);
+            Pelicula nueva = new Pelicula(anioEstreno, duracion, nombre, tituloOriginal);
             nueva.setGenero((Genero) selGenero.getSelectedItem());
-            nueva.setCalificacion((Calificacion) selCalificacion.getSelectedItem());
-            nueva.setPaisDeOrigen((PaisDeOrigen) selPais.getSelectedItem());
-            nueva.setPersonajes(personajes);
 
             // delegamos al gestor 
             gestor.guardarPelicula(nueva);
@@ -367,35 +279,19 @@ public class PantallaAdministracionPelicula extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnConfirmarActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // realizamos un mockup de la llamada al caso de uso "Registrar Elenco"
-        personajes = gestor.obtenerElenco();
-        
-        JOptionPane.showMessageDialog(null, "Se ha registrado el elenco: " + personajes.get(0));
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnConfirmar;
     private javax.swing.ButtonGroup buttonGroup5;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JRadioButton radioNoDisponible;
-    private javax.swing.JRadioButton radioSiDisponible;
-    private javax.swing.JComboBox<String> selCalificacion;
     private javax.swing.JComboBox<String> selGenero;
-    private javax.swing.JComboBox<String> selPais;
     private javax.swing.JTextField txtAnioEstreno;
     private javax.swing.JTextField txtDuracion;
     private javax.swing.JTextField txtNombre;

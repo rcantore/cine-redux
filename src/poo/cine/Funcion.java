@@ -20,7 +20,6 @@ public class Funcion {
     private Date horaInicio;
     private int numero;
     private Pelicula pelicula;
-    private Sala sala;
     private List<Entrada> entradas;
 
     /**
@@ -35,19 +34,16 @@ public class Funcion {
      * 
      * @param diaSemana
      * @param duracion
-     * @param fechaHabilitacion
      * @param horaInicio
      * @param numero
      * @param pelicula
-     * @param sala 
      */
-    public Funcion(int diaSemana, int duracion, Date horaInicio, int numero, Pelicula pelicula, Sala sala) {
+    public Funcion(int diaSemana, int duracion, Date horaInicio, int numero, Pelicula pelicula) {
         this.diaSemana = diaSemana;
         this.duracion = duracion;
         this.horaInicio = horaInicio;
         this.numero = numero;
         this.pelicula = pelicula;
-        this.sala = sala;
     }
     
     /**
@@ -142,13 +138,6 @@ public class Funcion {
         this.pelicula = pelicula;
     }
 
-    public Sala getSala() {
-        return sala;
-    }
-
-    public void setSala(Sala sala) {
-        this.sala = sala;
-    }
 
     public List<Entrada> getEntradas() {
         return entradas;

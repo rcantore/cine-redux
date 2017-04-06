@@ -5,22 +5,26 @@
  */
 package poo.cine.ui;
 
+import java.util.ArrayList;
 import java.util.List;
 import poo.cine.Genero;
 import poo.cine.Pelicula;
+import poo.cine.dao.PeliculasDaoImpl;
 
 /**
  *
  * @author roberto
  */
-public class PantallaVentaTickets extends javax.swing.JFrame {
+public class PantallaVentaEntradas extends javax.swing.JFrame {
 
-    private List<Pelicula> peliculas;
+    private List<Pelicula> peliculas = new ArrayList<Pelicula>();
     
     /**
      * Creates new form PantallaVentaTickets
      */
-    public PantallaVentaTickets() {
+    public PantallaVentaEntradas() {
+        PeliculasDaoImpl peliculasDao = new PeliculasDaoImpl();
+        peliculas.addAll(peliculasDao.obtenerTodos());
         initComponents();
     }
 
@@ -33,27 +37,27 @@ public class PantallaVentaTickets extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        selPeliculas = new javax.swing.JComboBox<>();
+        selPelicula = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        selPeliculas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Peliculas" }));
+        selPelicula.setModel(new javax.swing.DefaultComboBoxModel(peliculas.toArray()));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(101, 101, 101)
-                .addComponent(selPeliculas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(188, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(162, Short.MAX_VALUE)
+                .addComponent(selPelicula, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(59, 59, 59))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(selPeliculas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(247, Short.MAX_VALUE))
+                .addGap(30, 30, 30)
+                .addComponent(selPelicula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(243, Short.MAX_VALUE))
         );
 
         pack();
@@ -76,25 +80,26 @@ public class PantallaVentaTickets extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PantallaVentaTickets.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PantallaVentaEntradas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PantallaVentaTickets.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PantallaVentaEntradas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PantallaVentaTickets.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PantallaVentaEntradas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PantallaVentaTickets.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PantallaVentaEntradas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PantallaVentaTickets().setVisible(true);
+                new PantallaVentaEntradas().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> selPeliculas;
+    private javax.swing.JComboBox<String> selPelicula;
     // End of variables declaration//GEN-END:variables
 }
