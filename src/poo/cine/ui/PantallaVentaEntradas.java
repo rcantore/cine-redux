@@ -26,7 +26,7 @@ import poo.cine.usuario.Boletero;
 public class PantallaVentaEntradas extends javax.swing.JFrame {
 
     private Boletero boletero;
-    private List<Pelicula> peliculas = new ArrayList<Pelicula>();
+    private List<Pelicula> peliculas = new ArrayList<>();
     private List<Entrada> entradas = GestorEntradas.obtenerTodas();
     
     /**
