@@ -5,7 +5,7 @@
  */
 package poo.cine.ui;
 
-import poo.cine.controller.GestorPelicula;
+import poo.cine.controller.GestorCine;
 import java.awt.event.WindowEvent;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -20,9 +20,9 @@ public class PantallaAdministracionPelicula extends javax.swing.JFrame {
     
     private List<Genero> generos;
     
-    private final GestorPelicula gestor;
+    private final GestorCine gestor;
 
-    public PantallaAdministracionPelicula(List<Genero> generos, GestorPelicula gestor) {
+    public PantallaAdministracionPelicula(List<Genero> generos, GestorCine gestor) {
         this.generos = generos;
         this.gestor = gestor;
         
