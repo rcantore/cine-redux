@@ -6,7 +6,9 @@
 package poo.cine.ui;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import javax.swing.DefaultListModel;
 import poo.cine.Funcion;
 import poo.cine.Pelicula;
 import poo.cine.dao.PeliculasDaoImpl;
@@ -41,7 +43,8 @@ public class PantallaListadoPeliculas extends javax.swing.JPanel {
         selPelicula = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        selFuncion = new javax.swing.JComboBox<>();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        funcionesList = new javax.swing.JList<>();
 
         selPelicula.setModel(new javax.swing.DefaultComboBoxModel(peliculas.toArray()));
         selPelicula.addItemListener(new java.awt.event.ItemListener() {
@@ -53,10 +56,11 @@ public class PantallaListadoPeliculas extends javax.swing.JPanel {
         jLabel1.setText("Pelicula:");
         jLabel1.setToolTipText("");
 
-        jLabel2.setText("Funcion:");
+        jLabel2.setText("Funciones:");
 
-        selFuncion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        selFuncion.setSelectedIndex(-1);
+        funcionesList.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 102), 1, true));
+        funcionesList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jScrollPane1.setViewportView(funcionesList);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -65,16 +69,14 @@ public class PantallaListadoPeliculas extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(80, 80, 80)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(10, 10, 10)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(selPelicula, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(selFuncion, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(57, Short.MAX_VALUE))
+                    .addComponent(jLabel2)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel1)
+                            .addGap(14, 14, 14)
+                            .addComponent(selPelicula, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(79, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -83,30 +85,40 @@ public class PantallaListadoPeliculas extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(selPelicula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(selFuncion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(189, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(50, Short.MAX_VALUE))
         );
+
+        jLabel2.getAccessibleContext().setAccessibleName("Funciones");
     }// </editor-fold>//GEN-END:initComponents
 
     private void selPeliculaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_selPeliculaItemStateChanged
-        // TODO add your handling code here:
-        updateSelFunciones((Pelicula) selPelicula.getSelectedItem());
+        updateFuncionesList((Pelicula) selPelicula.getSelectedItem());
     }//GEN-LAST:event_selPeliculaItemStateChanged
 
-    public void updateSelFunciones(Pelicula pelicula) {
+    public void updateFuncionesList(Pelicula pelicula) {
         if (pelicula != null) {
+            DefaultListModel listModel = new DefaultListModel();
+
             List<Funcion> funciones = pelicula.getFunciones();
-            selFuncion.setModel(new javax.swing.DefaultComboBoxModel(funciones.toArray()));
+            Iterator<Funcion> it = funciones.iterator();
+            while (it.hasNext()) {
+                Funcion funcion = it.next();
+                listModel.addElement(funcion.toString());
+            }
+
+            funcionesList.setModel(listModel);
         }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JList<String> funcionesList;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JComboBox<String> selFuncion;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JComboBox<String> selPelicula;
     // End of variables declaration//GEN-END:variables
 }
