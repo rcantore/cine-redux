@@ -6,8 +6,11 @@
 package poo.cine.dao;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Random;
+import poo.cine.Funcion;
 import poo.cine.Pelicula;
 
 /**
@@ -19,12 +22,39 @@ public class PeliculasDaoImpl implements PeliculasDao {
     private final List<Pelicula> peliculas;
 
     public PeliculasDaoImpl() {
-        this.peliculas = new ArrayList<>();
-        this.peliculas.add(new Pelicula(2001, 0, "El hijo de la novia", "El hijo de la novia"));
-        this.peliculas.add(new Pelicula(1999, 0, "Matrix", "Matrix"));
-        this.peliculas.add(new Pelicula(1985, 0, "Volver al futuro", "Back to the future"));
+        
+        this.peliculas = new ArrayList<Pelicula>();
+        this.peliculas.add(crearPeliculaConFuncionesAzar("El hijo de la novia", "El hijo de la novia", 2001, 95));
+        this.peliculas.add(crearPeliculaConFuncionesAzar("Matrix", "Matrix", 1999, 122));
+        this.peliculas.add(crearPeliculaConFuncionesAzar("Volver al futuro", "Back to the future", 1985, 100));
+    }
+    
+    private Pelicula crearPeliculaConFuncionesAzar(String titulo, String tituloOriginal, int anio, int duracion) {
+        Pelicula pelicula = new Pelicula(anio, duracion, titulo, tituloOriginal);
+        pelicula.setFunciones(crearFuncionesAzar(3));
+        return pelicula;
     }
 
+    private List<Funcion> crearFuncionesAzar(int cantidad) {
+        List<Funcion> funciones = new ArrayList<Funcion>();
+        for (int i = 0; i < cantidad; i++) {
+            funciones.add(crearFuncionAzar());
+        }
+        
+        return funciones;
+    }
+    
+    private Funcion crearFuncionAzar() {
+        Funcion funcion = new Funcion();
+        
+        Random r =new Random();
+        long unixtime=(long) (1293861599+r.nextDouble()*60*60*24*365);
+        Date d = new Date(unixtime);
+        
+        funcion.setHoraInicio(d);
+                
+        return funcion;
+    }
     @Override
     public Pelicula buscarPorNombre(String nombre) {
         System.out.println("Buscando película por nombre: " + nombre);

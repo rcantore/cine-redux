@@ -5,6 +5,7 @@
  */
 package poo.cine;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -155,7 +156,8 @@ public class Funcion {
     @Override
     public String toString() {
         // TODO recorrer funciones y mostrar sus datos
-        return "Datos de la función: " + "Falta de hacer";
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+        return sdf.format(horaInicio);
     }
       
 }

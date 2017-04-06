@@ -86,4 +86,10 @@ public class Entrada {
         this.ticketNro = ticketNro;
     }
     
+    public String toString() {
+        Pelicula pelicula = getFuncion().getPelicula();
+        String rtnStr = "Entrada para " + pelicula + " " + getFuncion();
+        
+        return rtnStr;
+    }
 }

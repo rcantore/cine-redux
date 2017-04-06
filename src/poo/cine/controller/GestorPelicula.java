@@ -16,6 +16,7 @@ import poo.cine.dao.GenerosDaoImpl;
 import poo.cine.dao.PeliculasDao;
 import poo.cine.dao.PeliculasDaoImpl;
 import poo.cine.ui.PantallaVentaEntradas;
+import poo.cine.usuario.Boletero;
 
 /**
  *
@@ -45,7 +46,8 @@ public class GestorPelicula {
         
         // creamos una instancia del formulario y lo mostramos
         //PantallaAdministracionPelicula panel = new PantallaAdministracionPelicula(generos, calificaciones, paises, this);
-        PantallaVentaEntradas panel = new PantallaVentaEntradas();
+        Boletero boletero = new Boletero();
+        PantallaVentaEntradas panel = new PantallaVentaEntradas(boletero);
         panel.setVisible(true);
     }
 
