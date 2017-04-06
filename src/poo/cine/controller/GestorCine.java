@@ -15,6 +15,7 @@ import poo.cine.dao.GenerosDao;
 import poo.cine.dao.GenerosDaoImpl;
 import poo.cine.dao.PeliculasDao;
 import poo.cine.dao.PeliculasDaoImpl;
+import poo.cine.ui.PantallaBienvenida;
 import poo.cine.ui.PantallaVentaEntradas;
 import poo.cine.usuario.Boletero;
 
@@ -22,14 +23,14 @@ import poo.cine.usuario.Boletero;
  *
  * @author joaquinleonelrobles
  */
-public class GestorPelicula {
+public class GestorCine {
     
     private final Cine cine;
     
     private final GenerosDao generosDao;
     private final PeliculasDao peliculasDao;
 
-    public GestorPelicula() {
+    public GestorCine() {
         Calendar ahora = Calendar.getInstance();
         
         // creamos el cine
@@ -46,8 +47,9 @@ public class GestorPelicula {
         
         // creamos una instancia del formulario y lo mostramos
         //PantallaAdministracionPelicula panel = new PantallaAdministracionPelicula(generos, calificaciones, paises, this);
-        Boletero boletero = new Boletero();
-        PantallaVentaEntradas panel = new PantallaVentaEntradas(boletero);
+//        Boletero boletero = new Boletero();
+//        PantallaVentaEntradas panel = new PantallaVentaEntradas(boletero);
+        PantallaBienvenida panel = new PantallaBienvenida();
         panel.setVisible(true);
     }
 
