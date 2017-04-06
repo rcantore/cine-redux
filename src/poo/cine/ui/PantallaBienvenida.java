@@ -5,6 +5,10 @@
  */
 package poo.cine.ui;
 
+import java.awt.AWTEvent;
+import javax.swing.JDialog;
+import poo.cine.usuario.Boletero;
+
 /**
  *
  * @author roberto
@@ -46,9 +50,19 @@ public class PantallaBienvenida extends javax.swing.JFrame {
         });
 
         jButton2.setText("Cliente");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Salida");
         jButton3.setActionCommand("");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Cines");
 
@@ -116,8 +130,31 @@ public class PantallaBienvenida extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        JDialog dialog = new JDialog();
+        Boletero boletero = new Boletero();
+        
+        PantallaVentaEntradas panel = new PantallaVentaEntradas(boletero);
+        panel.setVisible(true);
+        dialog.add(panel);
+        dialog.setSize(panel.getSize());
+        dialog.pack();
+        dialog.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+
+        this.dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        JDialog dialog = new JDialog();
+        PantallaListadoPeliculas panel = new PantallaListadoPeliculas();
+        panel.setVisible(true);
+        dialog.add(panel);
+        dialog.setSize(panel.getSize());
+        dialog.pack();
+        dialog.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
