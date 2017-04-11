@@ -42,13 +42,6 @@ public class GestorCine {
     }
     
     public void run () {
-        // obtenemos los objetos para completar las listas de seleccion
-        List<Genero> generos = generosDao.obtenerTodos();
-        
-        // creamos una instancia del formulario y lo mostramos
-        //PantallaAdministracionPelicula panel = new PantallaAdministracionPelicula(generos, calificaciones, paises, this);
-//        Boletero boletero = new Boletero();
-//        PantallaVentaEntradas panel = new PantallaVentaEntradas(boletero);
         PantallaBienvenida panel = new PantallaBienvenida();
         panel.setVisible(true);
     }
