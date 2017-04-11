@@ -7,17 +7,13 @@ package poo.cine.controller;
 
 import java.math.BigDecimal;
 import java.util.Calendar;
-import java.util.List;
 import poo.cine.Cine;
-import poo.cine.Genero;
 import poo.cine.Pelicula;
 import poo.cine.dao.GenerosDao;
 import poo.cine.dao.GenerosDaoImpl;
 import poo.cine.dao.PeliculasDao;
 import poo.cine.dao.PeliculasDaoImpl;
 import poo.cine.ui.PantallaBienvenida;
-import poo.cine.ui.PantallaVentaEntradas;
-import poo.cine.usuario.Boletero;
 
 /**
  *
