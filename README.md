@@ -1,10 +1,10 @@
 # Complejo de Cines
-### Ejercicio practico
+## Ejercicio practico
 
 
 > Este ejercicio esta basado en el ejercicio 1 de ka Guía Práctica de los módulos Programación Orientada a Objetos y Bases de Datos del Programa Nacional [111mil Programadores](https://www.argentina.gob.ar/111mil). Ver [https://github.com/111milprogramadores/01-cine](https://github.com/111milprogramadores/01-cine).
 
-####Enunciado original:
+###Enunciado original:
 
 > Este complejo de cines cuenta con varios cines distribuidos en la ciudad. Cada cine tiene varias salas. Las salas no tienen el mismo tamaño, por consiguiente, la capacidad en términos de cantidad de butacas disponibles, no es la misma para todas las salas.
 > Las funciones de películas que se proyectarán en cada una de las salas de cada cine del complejo, las define el Responsable de Programación en forma centralizada para cada cine.
@@ -12,7 +12,7 @@
 
 Se recorta codigo no usado en esta practica y se agrega lo siguiente
 
-####Manejo de usuarios:
+###Manejo de usuarios:
 
 
 1. Usuario - Generico con informacion de usuario
